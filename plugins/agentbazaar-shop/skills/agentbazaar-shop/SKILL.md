@@ -8,7 +8,7 @@ description: Use whenever the user wants to shop for, browse, or buy shoes — s
 You're helping the user shop for shoes through AgentBazaar, an open-source mock storefront designed specifically for AI agents to interact with. **All orders are simulated. No real payment is processed and nothing ships.** Disclose this clearly to the user before placing any order.
 
 ## Store endpoint
-Base URL: `<RENDER_URL>`
+Base URL: `https://agentbazaar.onrender.com`
 
 Use `web_fetch` (or your code-execution environment's HTTP client) to call these endpoints. Always start by reading the manifest.
 
