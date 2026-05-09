@@ -9,7 +9,7 @@ const MANIFEST = {
   tagline: 'Agent-friendly shoe store',
   description: 'An open-source mock storefront designed for AI agents. All purchases are simulated — no real payment is processed and nothing ships.',
   currency: 'INR',
-  version: '0.1.0',
+  version: '0.2.0',
   is_demo: true,
   actions: [
     {
@@ -41,14 +41,42 @@ const MANIFEST = {
       }
     },
     {
+      name: 'get_cart',
+      method: 'GET',
+      path: '/cart/{cart_id}',
+      description: 'Retrieve an existing cart by its cart_id. Returns the full cart object with line items and totals. 404 if not found or already checked out.'
+    },
+    {
+      name: 'update_cart',
+      method: 'PATCH',
+      path: '/cart/{cart_id}',
+      description: 'Modify a cart: add, update, resize, or remove items. Totals are recomputed automatically after every change.',
+      body_schema: {
+        action: 'add_item | update_quantity | update_size | remove_item',
+        item: {
+          add_item: { product_id: 'string', size: 'number', quantity: 'number (merges with existing line if same product+size)' },
+          update_quantity: { product_id: 'string', size: 'number', quantity: 'number (0 removes the line)' },
+          update_size: { product_id: 'string', old_size: 'number', new_size: 'number (must be in stock)' },
+          remove_item: { product_id: 'string', size: 'number' }
+        }
+      }
+    },
+    {
+      name: 'delete_cart',
+      method: 'DELETE',
+      path: '/cart/{cart_id}',
+      description: 'Delete an entire cart. Returns { deleted: true, cart_id }. Use before checkout if the user abandons the session.'
+    },
+    {
       name: 'checkout',
       method: 'POST',
       path: '/checkout',
-      description: 'Place order. Mock — no real payment processed. Returns order_id and confirmation.',
+      description: 'Place order. Mock — no real payment processed. Sends a confirmation email to the customer after placing the order. Returns order_id and confirmation.',
       body_schema: {
         cart_id: 'string',
         shipping: {
           name: 'string',
+          email: 'string, required, customer email for order confirmation',
           address: 'string',
           city: 'string',
           pincode: 'string',

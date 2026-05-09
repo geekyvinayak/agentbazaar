@@ -23,7 +23,7 @@ Returns the agent-friendly capabilities document. Agents should read this first.
   "tagline": "Agent-friendly shoe store",
   "description": "...",
   "currency": "INR",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "is_demo": true,
   "actions": [...],
   "policies": {
@@ -166,9 +166,73 @@ Shipping is ₹0 when subtotal ≥ ₹2000, else ₹99.
 
 ---
 
+## GET /cart/:id
+
+Retrieve an existing cart.
+
+**Response:** same shape as POST /cart response.
+
+**Error (not found):**
+```json
+{ "error": { "code": "cart_not_found", "message": "Cart 'cart_abc' not found" } }
+```
+
+---
+
+## PATCH /cart/:id
+
+Modify a cart's contents. Totals are recomputed after every change.
+
+**Request body:**
+```json
+{
+  "action": "add_item | update_quantity | update_size | remove_item",
+  "item": { ... }
+}
+```
+
+### action: add_item
+```json
+{ "action": "add_item", "item": { "product_id": "sh_003", "size": 9, "quantity": 1 } }
+```
+Appends a new line. If the same `product_id` + `size` already exists, the quantity is merged (summed).
+
+### action: update_quantity
+```json
+{ "action": "update_quantity", "item": { "product_id": "sh_001", "size": 9, "quantity": 2 } }
+```
+Sets the quantity on that line. Passing `quantity: 0` removes the line. Cart stays open even if all items are removed.
+
+### action: update_size
+```json
+{ "action": "update_size", "item": { "product_id": "sh_001", "old_size": 9, "new_size": 10 } }
+```
+Changes the size of a line. `new_size` must be in the product's `in_stock_sizes`. If `new_size` already has a line, quantities are merged.
+
+### action: remove_item
+```json
+{ "action": "remove_item", "item": { "product_id": "sh_001", "size": 9 } }
+```
+Removes that specific line entirely.
+
+**Response:** updated cart object (same shape as POST /cart).
+
+---
+
+## DELETE /cart/:id
+
+Delete an entire cart (e.g. if the user abandons the session).
+
+**Response:**
+```json
+{ "deleted": true, "cart_id": "cart_8f3a2b1c" }
+```
+
+---
+
 ## POST /checkout
 
-Place an order. Mock — no real payment.
+Place an order. Mock — no real payment. Sends a confirmation email to `shipping.email`.
 
 **Request body:**
 ```json
@@ -176,6 +240,7 @@ Place an order. Mock — no real payment.
   "cart_id": "cart_8f3a2b1c",
   "shipping": {
     "name": "Vinayak",
+    "email": "vinayak@example.com",
     "address": "12 Vastrapur",
     "city": "Ahmedabad",
     "pincode": "380015",
@@ -195,14 +260,17 @@ Place an order. Mock — no real payment.
   "created_at": "2026-05-09T14:23:00.000Z",
   "estimated_delivery": "2026-05-14",
   "items": [...],
-  "shipping": { "name": "Vinayak", "address": "12 Vastrapur", "city": "Ahmedabad", "pincode": "380015", "phone": "+919876543210" },
+  "shipping": { "name": "Vinayak", "email": "vinayak@example.com", "address": "12 Vastrapur", "city": "Ahmedabad", "pincode": "380015", "phone": "+919876543210" },
   "payment_method": "upi",
   "total_paid_inr": 4499,
   "currency": "INR",
   "tracking_url": "http://localhost:3000/order/ord_K9XZ2P",
-  "message": "Order confirmed! 🎉 Reminder: AgentBazaar is a demo — no real charge was made and no shoe will ship."
+  "message": "Order confirmed! 🎉 Reminder: AgentBazaar is a demo — no real charge was made and no shoe will ship.",
+  "email_sent": true
 }
 ```
+
+When `GMAIL_USER`/`GMAIL_APP_PASSWORD` env vars are absent, `email_skipped: true` appears instead of `email_sent`.
 
 The cart is deleted after checkout. Checking out with the same `cart_id` twice returns a 404.
 

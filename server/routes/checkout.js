@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const { carts, orders, orderId } = require('../lib/store');
+const { sendOrderConfirmation } = require('../lib/email');
 
-const REQUIRED_SHIPPING_FIELDS = ['name', 'address', 'city', 'pincode', 'phone'];
+const REQUIRED_SHIPPING_FIELDS = ['name', 'email', 'address', 'city', 'pincode', 'phone'];
 const VALID_PAYMENT_METHODS = ['cod', 'upi', 'card'];
+const EMAIL_RE = /^.+@.+\..+$/;
 
 router.post('/', (req, res) => {
   const { cart_id, shipping, payment_method } = req.body || {};
@@ -24,6 +26,9 @@ router.post('/', (req, res) => {
       return res.status(400).json({ error: { code: 'missing_shipping_field', message: `shipping.${field} is required` } });
     }
   }
+  if (!EMAIL_RE.test(shipping.email)) {
+    return res.status(400).json({ error: { code: 'invalid_email', message: "shipping.email must be a valid email address" } });
+  }
 
   if (!payment_method || !VALID_PAYMENT_METHODS.includes(payment_method)) {
     return res.status(400).json({
@@ -42,6 +47,7 @@ router.post('/', (req, res) => {
   const host = req.get('host') || 'localhost:3000';
   const protocol = req.protocol || 'http';
 
+  // Carry shipping_inr from cart so the email template can display it
   const order = {
     order_id: id,
     status: 'confirmed',
@@ -51,6 +57,7 @@ router.post('/', (req, res) => {
     shipping,
     payment_method,
     total_paid_inr: cart.total_inr,
+    shipping_inr: cart.shipping_inr,
     currency: 'INR',
     tracking_url: `${protocol}://${host}/order/${id}`,
     message: "Order confirmed! 🎉 Reminder: AgentBazaar is a demo — no real charge was made and no shoe will ship."
@@ -59,7 +66,14 @@ router.post('/', (req, res) => {
   orders.set(id, order);
   carts.delete(cart_id);
 
-  res.status(201).json(order);
+  // Fire-and-forget — never block the checkout response on email delivery
+  const emailVarsPresent = !!(process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD);
+  sendOrderConfirmation(order).catch(console.error);
+
+  res.status(201).json({
+    ...order,
+    [emailVarsPresent ? 'email_sent' : 'email_skipped']: true
+  });
 });
 
 module.exports = router;

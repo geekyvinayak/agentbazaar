@@ -1,6 +1,6 @@
 {
   "name": "agentbazaar-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "AgentBazaar storefront — agent-friendly shoe store API",
   "main": "index.js",
   "scripts": {
@@ -8,9 +8,10 @@
     "dev": "node --watch index.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
     "cors": "^2.8.5",
-    "morgan": "^1.10.0"
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^8.0.7"
   },
   "engines": {
     "node": ">=20"

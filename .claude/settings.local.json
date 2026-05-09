@@ -11,7 +11,14 @@
       "Skill(update-config:*)",
       "Bash(curl -s \"http://localhost:3000/search\")",
       "Bash(curl -s \"http://localhost:3000/product/sh_999\")",
-      "Bash(curl -s \"http://localhost:3000/unknown-route\")"
+      "Bash(curl -s \"http://localhost:3000/unknown-route\")",
+      "Bash(npm install *)",
+      "Bash(npm audit *)",
+      "Bash(node -e \"require\\('./lib/email'\\); console.log\\('email.js loads ok'\\)\")",
+      "Bash(pkill -f \"node index.js\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('version:', d['version']\\); print\\('actions:', [a['name'] for a in d['actions']]\\)\")",
+      "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\)\\); console.log\\('version:', d.version\\); console.log\\('actions:', d.actions.map\\(a=>a.name\\).join\\(', '\\)\\)\")",
+      "Bash(node -e \"const d=require\\('/tmp/manifest_check.json'\\); console.log\\('version:', d.version\\); console.log\\('actions:', d.actions.map\\(a=>a.name\\).join\\(', '\\)\\)\")"
     ]
   }
 }
