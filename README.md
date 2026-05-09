@@ -12,7 +12,7 @@
 | Stack | Node.js 20+ + Express 4.x |
 | License | MIT |
 | Hosting | Render free tier |
-| ✉️ Emails | Sends real confirmation emails via Gmail SMTP |
+| ✉️ Emails | Sends real confirmation emails via [Resend](https://resend.com) |
 
 ## Try it in 30 seconds
 
@@ -55,16 +55,16 @@ Copy `server/.env.example` to `server/.env` and fill in the values. **Never comm
 |---|---|---|
 | `PORT` | No | Server port (default: 3000) |
 | `NODE_ENV` | No | `development` or `production` |
-| `GMAIL_USER` | For emails | Your Gmail address (e.g. `you@gmail.com`) |
-| `GMAIL_APP_PASSWORD` | For emails | A 16-character [Gmail App Password](https://myaccount.google.com/apppasswords) |
+| `RESEND_API_KEY` | For emails | API key from [resend.com](https://resend.com) |
+| `RESEND_FROM_EMAIL` | For emails | Verified sender address (e.g. `orders@yourdomain.com`) |
+| `RESEND_TO_OVERRIDE` | No | If set, **all** confirmation emails go to this address instead of the customer's. Handy when Resend is in sandbox mode or you want to avoid emailing real users during demos. A small note is added to the email body explaining the redirect. |
 
-To generate a Gmail App Password:
-1. Enable 2-Step Verification on your Google account.
-2. Go to [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords).
-3. Create an app password for "Mail" → "Other (custom name)" → call it `AgentBazaar`.
-4. Copy the 16-character password into `GMAIL_APP_PASSWORD`.
+To set up Resend:
+1. Sign up at [resend.com](https://resend.com) and grab an API key from the dashboard.
+2. Add and verify a sending domain (DNS takes a few minutes). For quick testing you can use `onboarding@resend.dev` as `RESEND_FROM_EMAIL` — it works without domain verification but only sends to your own account email.
+3. Set `RESEND_TO_OVERRIDE` to your own address while testing so you don't accidentally email real users.
 
-If the Gmail env vars are absent the server still starts and operates normally — it just skips confirmation emails and logs a warning. The checkout response includes `email_skipped: true` in that case.
+If the Resend env vars are absent the server still starts and operates normally — it just skips confirmation emails and logs a warning. The checkout response includes `email_skipped: true` in that case.
 
 ## Why this exists
 

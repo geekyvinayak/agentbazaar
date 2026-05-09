@@ -1,10 +1,10 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
 function formatINR(n) {
   return '₹' + n.toLocaleString('en-IN');
 }
 
-function buildHtml(order) {
+function buildHtml(order, toOverride) {
   const itemRows = order.items.map(i => `
     <tr>
       <td style="padding:8px 12px;border-bottom:1px solid #eee">${i.name} (${i.brand})</td>
@@ -14,6 +14,17 @@ function buildHtml(order) {
     </tr>`).join('');
 
   const { name, address, city, pincode, phone } = order.shipping;
+
+  // When RESEND_TO_OVERRIDE is set, all mail goes to that address instead of the customer's.
+  const overrideBanner = toOverride ? `
+        <tr><td style="padding:12px 32px 0">
+          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:12px">
+            <p style="margin:0;font-size:12px;color:#1e40af">
+              <strong>Demo routing note:</strong> In this demo deployment all confirmation emails are
+              redirected to the store owner's address rather than the customer's inbox.
+            </p>
+          </div>
+        </td></tr>` : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -27,6 +38,8 @@ function buildHtml(order) {
           <h1 style="margin:0;color:#fff;font-size:22px">AgentBazaar</h1>
           <p style="margin:4px 0 0;color:#aaa;font-size:14px">Agent-friendly shoe store</p>
         </td></tr>
+
+        ${overrideBanner}
 
         <tr><td style="padding:32px">
           <h2 style="margin:0 0 8px;font-size:20px">Order confirmed ✓</h2>
@@ -82,16 +95,20 @@ function buildHtml(order) {
 </html>`;
 }
 
-function buildText(order) {
+function buildText(order, toOverride) {
   const items = order.items.map(i =>
     `  ${i.name} (${i.brand}) · Size ${i.size} · ×${i.quantity} · ${formatINR(i.line_total_inr)}`
   ).join('\n');
   const { name, address, city, pincode, phone } = order.shipping;
 
+  const overrideLine = toOverride
+    ? `NOTE: Demo routing — this email was redirected to the store owner's address.\n\n`
+    : '';
+
   return `AgentBazaar — Order Confirmed
 ==============================
 
-Order ID: ${order.order_id}
+${overrideLine}Order ID: ${order.order_id}
 Estimated delivery: ${order.estimated_delivery}
 
 ITEMS
@@ -114,36 +131,42 @@ AgentBazaar is an open-source template for agentic commerce.
 }
 
 async function sendOrderConfirmation(order) {
-  const user = process.env.GMAIL_USER;
-  const pass = process.env.GMAIL_APP_PASSWORD;
+  const apiKey = process.env.RESEND_API_KEY;
+  const fromEmail = process.env.RESEND_FROM_EMAIL;
 
-  if (!user || !pass) {
-    console.warn('[email] GMAIL_USER or GMAIL_APP_PASSWORD not set — skipping confirmation email');
+  if (!apiKey || !fromEmail) {
+    console.warn('[email] RESEND_API_KEY or RESEND_FROM_EMAIL not set — skipping confirmation email');
     return { skipped: true };
   }
 
-  const toEmail = order.shipping && order.shipping.email;
-  if (!toEmail) {
+  const customerEmail = order.shipping && order.shipping.email;
+  if (!customerEmail) {
     console.warn(`[email] No email on order ${order.order_id} — skipping`);
     return { skipped: true };
   }
 
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: { user, pass }
-  });
+  // RESEND_TO_OVERRIDE lets a demo deployment receive all mail at one address
+  // instead of sending to real customer emails (useful when Resend is in sandbox mode).
+  const toOverride = process.env.RESEND_TO_OVERRIDE || null;
+  const toEmail = toOverride || customerEmail;
+
+  const resend = new Resend(apiKey);
 
   try {
-    await transporter.sendMail({
-      from: `"AgentBazaar" <${user}>`,
+    const { data, error } = await resend.emails.send({
+      from: `AgentBazaar <${fromEmail}>`,
       to: toEmail,
       subject: `Order confirmed: ${order.order_id} — AgentBazaar`,
-      html: buildHtml(order),
-      text: buildText(order)
+      html: buildHtml(order, toOverride),
+      text: buildText(order, toOverride)
     });
-    console.log(`[email] Confirmation sent for ${order.order_id} → ${toEmail}`);
+
+    if (error) {
+      console.error(`[email] Resend error for ${order.order_id}:`, error.message);
+      return { error: error.message };
+    }
+
+    console.log(`[email] Confirmation sent for ${order.order_id} → ${toEmail} (id: ${data.id})`);
     return { sent: true };
   } catch (err) {
     console.error(`[email] Failed to send for ${order.order_id}:`, err.message);
