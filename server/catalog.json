@@ -1,0 +1,510 @@
+[
+  {
+    "id": "sh_001",
+    "name": "Speedster X3",
+    "brand": "Nike",
+    "type": "running",
+    "price_inr": 4499,
+    "mrp_inr": 6999,
+    "rating": 4.6,
+    "review_count": 834,
+    "description": "Lightweight runner with responsive EVA cushioning and breathable mesh upper. Built for daily runs up to 10K on road and track.",
+    "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
+    "colors": ["black", "white", "volt"],
+    "in_stock_sizes": [7, 8, 9, 10, 11],
+    "features": [
+      "Lightweight EVA midsole",
+      "Breathable mesh upper",
+      "Durable rubber outsole",
+      "Reflective heel tab"
+    ]
+  },
+  {
+    "id": "sh_002",
+    "name": "PaceRun Pro",
+    "brand": "Adidas",
+    "type": "running",
+    "price_inr": 3799,
+    "mrp_inr": 3799,
+    "rating": 4.4,
+    "review_count": 512,
+    "description": "Stable everyday trainer with Adidas Cloudfoam cushioning for smooth heel-to-toe transitions. Great for beginners logging their first kilometres.",
+    "image_url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600",
+    "colors": ["navy", "white"],
+    "in_stock_sizes": [6, 7, 8, 9, 10, 11],
+    "features": [
+      "Cloudfoam midsole",
+      "Knit mesh upper",
+      "OrthoLite sockliner",
+      "Grippy rubber outsole"
+    ]
+  },
+  {
+    "id": "sh_003",
+    "name": "FluxRun Elite",
+    "brand": "Puma",
+    "type": "running",
+    "price_inr": 5299,
+    "mrp_inr": 7499,
+    "rating": 4.5,
+    "review_count": 389,
+    "description": "Puma's performance running shoe with NITRO foam technology for energy return on longer runs. Engineered for runners targeting sub-60 10K times.",
+    "image_url": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600",
+    "colors": ["red", "black"],
+    "in_stock_sizes": [7, 8, 9, 10, 11, 12],
+    "features": [
+      "NITRO foam midsole",
+      "RunGuide rail stability system",
+      "Engineered mesh upper",
+      "PumaGrip outsole"
+    ]
+  },
+  {
+    "id": "sh_004",
+    "name": "SwiftStride 2",
+    "brand": "Reebok",
+    "type": "running",
+    "price_inr": 2799,
+    "mrp_inr": 2799,
+    "rating": 4.1,
+    "review_count": 276,
+    "description": "Budget-friendly daily runner with a padded collar and responsive midsole. Solid choice for new runners who don't want to break the bank.",
+    "image_url": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600",
+    "colors": ["grey", "white"],
+    "in_stock_sizes": [6, 7, 8, 9, 10],
+    "features": [
+      "DMX Micro cushioning",
+      "Mesh upper with synthetic overlays",
+      "Padded collar and tongue",
+      "Rubber outsole"
+    ]
+  },
+  {
+    "id": "sh_005",
+    "name": "GoRun Velocity 4",
+    "brand": "Skechers",
+    "type": "running",
+    "price_inr": 4999,
+    "mrp_inr": 6499,
+    "rating": 4.3,
+    "review_count": 621,
+    "description": "Machine-washable performance runner with 5GEN cushioning and a Goga Mat insole for all-day comfort. Ideal for casual runners and gym-goers alike.",
+    "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
+    "colors": ["blue", "grey", "white"],
+    "in_stock_sizes": [7, 8, 9, 10, 11],
+    "features": [
+      "5GEN midsole cushioning",
+      "Goga Mat insole",
+      "Machine-washable knit upper",
+      "Lightweight outsole"
+    ]
+  },
+  {
+    "id": "sh_006",
+    "name": "Tempo 5.0",
+    "brand": "Campus",
+    "type": "running",
+    "price_inr": 1899,
+    "mrp_inr": 1899,
+    "rating": 3.9,
+    "review_count": 145,
+    "description": "No-frills road runner from Campus with a cushioned midsole and anti-skid outsole. Best value-for-money running shoe under ₹2000.",
+    "image_url": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600",
+    "colors": ["black", "white"],
+    "in_stock_sizes": [6, 7, 8, 9, 10, 11],
+    "features": [
+      "Cushioned PU midsole",
+      "Anti-skid rubber outsole",
+      "Breathable mesh upper",
+      "Padded insole"
+    ]
+  },
+  {
+    "id": "sh_007",
+    "name": "AirZoom Marathon+",
+    "brand": "Nike",
+    "type": "running",
+    "price_inr": 8999,
+    "mrp_inr": 11999,
+    "rating": 4.8,
+    "review_count": 1204,
+    "description": "Competition-grade marathon shoe with full-length Zoom Air unit and a carbon-fibre-inspired plate for explosive toe-off. Designed for race day, fast enough for tempo work.",
+    "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
+    "colors": ["white", "volt"],
+    "in_stock_sizes": [7, 8, 9, 10, 11],
+    "features": [
+      "Full-length Zoom Air cushioning",
+      "React foam midsole",
+      "Carbon-inspired propulsion plate",
+      "Flyknit upper",
+      "Rubber crash pads"
+    ]
+  },
+  {
+    "id": "sh_008",
+    "name": "UltraBoost Light 23",
+    "brand": "Adidas",
+    "type": "running",
+    "price_inr": 11499,
+    "mrp_inr": 14999,
+    "rating": 4.9,
+    "review_count": 1489,
+    "description": "Adidas' flagship running shoe, now 30% lighter with Light BOOST foam for superior energy return across every kilometre. The benchmark for premium running comfort.",
+    "image_url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600",
+    "colors": ["core black", "cloud white"],
+    "in_stock_sizes": [7, 8, 9, 10, 11, 12],
+    "features": [
+      "Light BOOST midsole (30% lighter)",
+      "Primeknit+ upper",
+      "Continental rubber outsole",
+      "Linear Energy Push system",
+      "Torsion system arch support"
+    ]
+  },
+  {
+    "id": "sh_009",
+    "name": "Everyday Classic Lo",
+    "brand": "Puma",
+    "type": "casual",
+    "price_inr": 2499,
+    "mrp_inr": 2499,
+    "rating": 4.2,
+    "review_count": 318,
+    "description": "Clean low-top sneaker with a vulcanised sole and padded collar. Pairs equally well with jeans and shorts for effortless everyday style.",
+    "image_url": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600",
+    "colors": ["white", "black"],
+    "in_stock_sizes": [6, 7, 8, 9, 10, 11],
+    "features": [
+      "Canvas upper",
+      "Vulcanised rubber sole",
+      "Padded collar",
+      "Puma Formstrip branding"
+    ]
+  },
+  {
+    "id": "sh_010",
+    "name": "D'Lites Retro Chunky",
+    "brand": "Skechers",
+    "type": "casual",
+    "price_inr": 3999,
+    "mrp_inr": 3999,
+    "rating": 4.3,
+    "review_count": 742,
+    "description": "Chunky retro sneaker with a memory foam insole and lug outsole. The thick sole and mixed-texture upper make it a statement casual shoe.",
+    "image_url": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600",
+    "colors": ["white", "silver"],
+    "in_stock_sizes": [6, 7, 8, 9, 10],
+    "features": [
+      "Memory foam padded insole",
+      "Mixed leather and mesh upper",
+      "Chunky lug outsole",
+      "Contrast stitching detail"
+    ]
+  },
+  {
+    "id": "sh_011",
+    "name": "Casual Stride V2",
+    "brand": "Campus",
+    "type": "casual",
+    "price_inr": 1499,
+    "mrp_inr": 1499,
+    "rating": 3.8,
+    "review_count": 89,
+    "description": "Affordable everyday sneaker with a PVC sole and cushioned insole. Good for students and casual outings where comfort matters more than looks.",
+    "image_url": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600",
+    "colors": ["navy", "grey"],
+    "in_stock_sizes": [6, 7, 8, 9, 10, 11],
+    "features": [
+      "Synthetic upper",
+      "PVC outsole",
+      "Cushioned insole",
+      "Lace-up closure"
+    ]
+  },
+  {
+    "id": "sh_012",
+    "name": "Urbanite Street",
+    "brand": "Sparx",
+    "type": "casual",
+    "price_inr": 2199,
+    "mrp_inr": 2199,
+    "rating": 4.0,
+    "review_count": 203,
+    "description": "Street-style sneaker with a textured synthetic upper and extra-cushioned footbed. Popular with college students for its clean silhouette and durability.",
+    "image_url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600",
+    "colors": ["white", "blue"],
+    "in_stock_sizes": [7, 8, 9, 10, 11],
+    "features": [
+      "Textured synthetic upper",
+      "Extra-cushioned footbed",
+      "Anti-skid outsole",
+      "Padded ankle collar"
+    ]
+  },
+  {
+    "id": "sh_013",
+    "name": "Air Force Basics",
+    "brand": "Nike",
+    "type": "casual",
+    "price_inr": 6999,
+    "mrp_inr": 8499,
+    "rating": 4.7,
+    "review_count": 1122,
+    "description": "Nike's iconic low-top silhouette with a full-grain leather upper and Air cushioning in the heel. A wardrobe staple that has outlived every trend.",
+    "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
+    "colors": ["white", "black", "red"],
+    "in_stock_sizes": [7, 8, 9, 10, 11, 12],
+    "features": [
+      "Full-grain leather upper",
+      "Air cushioning unit",
+      "Pivot circle rubber outsole",
+      "Foam midsole",
+      "Perforated toe box"
+    ]
+  },
+  {
+    "id": "sh_014",
+    "name": "Stan Breeze Low",
+    "brand": "Adidas",
+    "type": "casual",
+    "price_inr": 4499,
+    "mrp_inr": 4499,
+    "rating": 4.5,
+    "review_count": 876,
+    "description": "Clean minimalist low-top inspired by the iconic Stan Smith silhouette, made with a perforated leather upper for warm-weather breathability.",
+    "image_url": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600",
+    "colors": ["white", "green"],
+    "in_stock_sizes": [6, 7, 8, 9, 10, 11],
+    "features": [
+      "Perforated leather upper",
+      "Cloudfoam midsole",
+      "Herringbone-pattern outsole",
+      "Webbing lace loop"
+    ]
+  },
+  {
+    "id": "sh_015",
+    "name": "Richmond Oxford",
+    "brand": "Bata",
+    "type": "formal",
+    "price_inr": 2799,
+    "mrp_inr": 2799,
+    "rating": 4.2,
+    "review_count": 334,
+    "description": "Classic cap-toe Oxford in glossy synthetic leather. Lightweight and comfortable enough for 8-hour office days without sacrificing a polished look.",
+    "image_url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600",
+    "colors": ["black", "brown"],
+    "in_stock_sizes": [6, 7, 8, 9, 10, 11],
+    "features": [
+      "Synthetic patent leather upper",
+      "Leather-effect lining",
+      "Cushioned insole",
+      "TPR outsole"
+    ]
+  },
+  {
+    "id": "sh_016",
+    "name": "Genteel Plus Derby",
+    "brand": "Liberty",
+    "type": "formal",
+    "price_inr": 3499,
+    "mrp_inr": 3499,
+    "rating": 4.3,
+    "review_count": 189,
+    "description": "Genuine leather Derby shoe with a memory foam insole for all-day support at boardroom meetings or formal events. Made in India.",
+    "image_url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600",
+    "colors": ["black", "tan"],
+    "in_stock_sizes": [6, 7, 8, 9, 10],
+    "features": [
+      "Genuine leather upper",
+      "Memory foam insole",
+      "Leather lining",
+      "TPR outsole",
+      "Burnished toe detail"
+    ]
+  },
+  {
+    "id": "sh_017",
+    "name": "Derby Classic II",
+    "brand": "Woodland",
+    "type": "formal",
+    "price_inr": 7999,
+    "mrp_inr": 9999,
+    "rating": 4.6,
+    "review_count": 412,
+    "description": "Full-grain vegetable-tanned leather Derby with Woodland's signature Goodyear-welt construction. Built to last a decade and look better with age.",
+    "image_url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600",
+    "colors": ["dark brown", "black"],
+    "in_stock_sizes": [7, 8, 9, 10, 11],
+    "features": [
+      "Full-grain vegetable-tanned leather",
+      "Goodyear-welt construction",
+      "Cork-filled insole",
+      "Leather mid-lining",
+      "Rubber lug outsole"
+    ]
+  },
+  {
+    "id": "sh_018",
+    "name": "Senator Pro",
+    "brand": "Bata",
+    "type": "formal",
+    "price_inr": 3299,
+    "mrp_inr": 3299,
+    "rating": 4.1,
+    "review_count": 156,
+    "description": "Slim-toe formal shoe in semi-matte finish with a cushioned heel counter for reduced fatigue on long standing days.",
+    "image_url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600",
+    "colors": ["black"],
+    "in_stock_sizes": [6, 7, 8, 9, 10, 11],
+    "features": [
+      "Semi-matte synthetic upper",
+      "Cushioned heel counter",
+      "Foam insole",
+      "Non-slip TPR sole"
+    ]
+  },
+  {
+    "id": "sh_019",
+    "name": "Comfort Slide Plus",
+    "brand": "Bata",
+    "type": "sandals",
+    "price_inr": 1299,
+    "mrp_inr": 1299,
+    "rating": 4.0,
+    "review_count": 234,
+    "description": "Everyday slide sandal with a contoured EVA footbed and adjustable single strap. Lightweight and easy to slip on for home, beach, or market runs.",
+    "image_url": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600",
+    "colors": ["black", "brown"],
+    "in_stock_sizes": [6, 7, 8, 9, 10, 11],
+    "features": [
+      "Contoured EVA footbed",
+      "Adjustable buckle strap",
+      "Anti-slip rubber outsole",
+      "Soft synthetic upper"
+    ]
+  },
+  {
+    "id": "sh_020",
+    "name": "Breezy Kolhapuri Chappal",
+    "brand": "Sparx",
+    "type": "sandals",
+    "price_inr": 799,
+    "mrp_inr": 799,
+    "rating": 4.2,
+    "review_count": 567,
+    "description": "Flat chappal inspired by the Kolhapuri silhouette, crafted in faux leather with hand-stitch detailing. Everyday Indian footwear with traditional charm.",
+    "image_url": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600",
+    "colors": ["tan", "brown"],
+    "in_stock_sizes": [6, 7, 8, 9, 10, 11],
+    "features": [
+      "Faux leather upper",
+      "Hand-stitch detailing",
+      "Flat PU outsole",
+      "Toe-loop closure"
+    ]
+  },
+  {
+    "id": "sh_021",
+    "name": "Strider Sport Sandal",
+    "brand": "Campus",
+    "type": "sandals",
+    "price_inr": 3199,
+    "mrp_inr": 3199,
+    "rating": 4.1,
+    "review_count": 98,
+    "description": "Sporty open-toe sandal with webbing straps and a thick EVA midsole. Good for outdoor walks, short treks, and casual weekend use.",
+    "image_url": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600",
+    "colors": ["grey", "blue"],
+    "in_stock_sizes": [7, 8, 9, 10, 11],
+    "features": [
+      "Webbing strap system",
+      "EVA midsole",
+      "Rubber lug outsole",
+      "Open-toe design"
+    ]
+  },
+  {
+    "id": "sh_022",
+    "name": "Court Dominator Pro",
+    "brand": "Nike",
+    "type": "sports",
+    "price_inr": 9499,
+    "mrp_inr": 12499,
+    "rating": 4.7,
+    "review_count": 988,
+    "description": "Premium basketball shoe with Zoom Air in the heel and forefoot, lateral support straps, and a herringbone traction pattern for court grip.",
+    "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
+    "colors": ["black", "white", "red"],
+    "in_stock_sizes": [8, 9, 10, 11, 12, 13],
+    "features": [
+      "Dual Zoom Air cushioning",
+      "Lateral support straps",
+      "Herringbone traction outsole",
+      "Flywire lacing system",
+      "High-top ankle support"
+    ]
+  },
+  {
+    "id": "sh_023",
+    "name": "Hoop Vision 3",
+    "brand": "Adidas",
+    "type": "sports",
+    "price_inr": 5999,
+    "mrp_inr": 5999,
+    "rating": 4.4,
+    "review_count": 433,
+    "description": "Mid-top basketball shoe with Bounce cushioning and a wide base for stable cuts and explosive takeoffs. A crowd favourite at weekend street-ball games.",
+    "image_url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600",
+    "colors": ["white", "gold"],
+    "in_stock_sizes": [8, 9, 10, 11, 12],
+    "features": [
+      "Bounce midsole",
+      "Wide-base outsole",
+      "Mid-top ankle collar",
+      "Synthetic leather upper",
+      "Herringbone court grip"
+    ]
+  },
+  {
+    "id": "sh_024",
+    "name": "Trekker X High",
+    "brand": "Woodland",
+    "type": "boots",
+    "price_inr": 8999,
+    "mrp_inr": 11499,
+    "rating": 4.8,
+    "review_count": 765,
+    "description": "Rugged high-ankle trekking boot with waterproof nubuck leather and Woodland's signature lug outsole for grip on loose trails and wet terrain.",
+    "image_url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600",
+    "colors": ["khaki", "dark brown"],
+    "in_stock_sizes": [7, 8, 9, 10, 11],
+    "features": [
+      "Waterproof nubuck leather",
+      "High-ankle support collar",
+      "Deep lug rubber outsole",
+      "Steel shank for torsional stiffness",
+      "Moisture-wicking lining"
+    ]
+  },
+  {
+    "id": "sh_025",
+    "name": "Hiker Pro Ankle Boot",
+    "brand": "Sparx",
+    "type": "boots",
+    "price_inr": 3999,
+    "mrp_inr": 3999,
+    "rating": 4.0,
+    "review_count": 167,
+    "description": "Affordable ankle boot with a lace-up closure and chunky outsole. A good budget entry into hiking footwear for weekend walkers and light trail users.",
+    "image_url": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600",
+    "colors": ["brown", "black"],
+    "in_stock_sizes": [7, 8, 9, 10, 11],
+    "features": [
+      "Synthetic leather upper",
+      "Lace-up closure",
+      "Chunky rubber outsole",
+      "Padded ankle collar"
+    ]
+  }
+]

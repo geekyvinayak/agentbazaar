@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node index.js)",
+      "Bash(curl -s http://localhost:3000/manifest)",
+      "Bash(curl -s \"http://localhost:3000/search?q=running\")",
+      "Bash(curl -s \"http://localhost:3000/search?q=running&max_price=4000&size=9\")",
+      "Bash(curl -s \"http://localhost:3000/product/sh_001\")",
+      "Bash(curl -s \"http://localhost:3000/order/ord_6A1DF8\")",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(curl -s \"http://localhost:3000/search\")",
+      "Bash(curl -s \"http://localhost:3000/product/sh_999\")",
+      "Bash(curl -s \"http://localhost:3000/unknown-route\")"
+    ]
+  }
+}

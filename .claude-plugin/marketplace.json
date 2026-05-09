@@ -1,0 +1,20 @@
+{
+  "name": "agentbazaar",
+  "owner": {
+    "name": "Vinayak",
+    "url": "https://github.com/geekyvinayak"
+  },
+  "metadata": {
+    "description": "AgentBazaar — agent-friendly shoe store + Claude skill. Open template for agentic commerce.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "agentbazaar-shop",
+      "source": "./plugins/agentbazaar-shop",
+      "description": "Shop for shoes via Claude. Connects to AgentBazaar's agent-friendly storefront API.",
+      "category": "shopping",
+      "tags": ["commerce", "shopping", "agentic-commerce", "shoes", "demo"]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "agentbazaar-shop",
+  "version": "0.1.0",
+  "description": "Browse and 'buy' shoes via Claude. Connects to AgentBazaar — an open-source agent-friendly mock storefront.",
+  "author": {
+    "name": "Vinayak",
+    "url": "https://github.com/geekyvinayak"
+  }
+}
